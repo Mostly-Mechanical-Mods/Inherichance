@@ -1,0 +1,20 @@
+﻿inherichance = {
+	default = inherichance_vanilla
+	
+	inherichance_random = {}
+	inherichance_underdog = {}
+	inherichance_topdog = {}
+	inherichance_vanilla = {}
+}
+
+inherichance_gold = {
+	default = inherichance_gold_hardcore_vanilla
+	
+	inherichance_gold_hardcore_vanilla = {}
+	inherichance_gold_spoliation = {}
+	inherichance_gold_egalitarianism = {}
+	inherichance_gold_capitalism = {}
+	inherichance_gold_socialism = {}
+	inherichance_gold_royalism = {}
+	inherichance_gold_populism = {}
+}

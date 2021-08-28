@@ -1,0 +1,19 @@
+﻿sgui_inherichance = {
+	scope = character
+	saved_scopes = {
+		dead_character
+	}
+	effect = {				
+		if = {
+			limit = { NOT = { THIS = var:inherichance_heirs_story.var:random_heir }}
+			set_player_character = var:inherichance_heirs_story.var:random_heir
+		}
+	}
+}
+
+sgui_end_inherichance = {
+	scope = character
+	effect = {
+		var:inherichance_heirs_story = { end_story = yes }
+	}
+}

@@ -1,0 +1,77 @@
+﻿inherichance_number_of_baronies = {
+	value = 0
+	every_heir_to_title = {
+		limit = {
+			holder = scope:deceased
+			is_leased_out = no
+			tier <= tier_county
+		}
+		add = 1
+	}
+	every_held_title = {
+		limit = {
+			is_leased_out = no
+			tier <= tier_county
+			exists = previous_holder
+			previous_holder = scope:deceased
+		}
+		add = 1
+	}
+	min = 1
+}
+
+inherichance_title_rank = {
+	value = 0
+	ordered_heir_to_title = {
+		limit = {
+			holder = scope:deceased
+			is_leased_out = no
+		}
+		position = 0
+		order_by = tier
+		add = tier
+	}
+	min = {
+		ordered_held_title = {
+			limit = {
+				exists = previous_holder
+				previous_holder = scope:deceased
+			}
+			position = 0
+			order_by = tier
+			add = tier
+		}
+	}
+	min = 1
+}
+
+inherichance_gold_share = {
+	value = 0
+	if = {
+		limit = { has_game_rule = inherichance_gold_egalitarianism }
+		add = 1
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = inherichance_gold_capitalism
+				has_game_rule = inherichance_gold_socialism
+			}
+		}
+		add = inherichance_number_of_baronies
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = inherichance_gold_royalism
+				has_game_rule = inherichance_gold_populism
+			}
+		}
+		add = inherichance_title_rank
+	}
+	else = {}
+}
+
+inherichance_total_share = {
+	every_heir = { add = inherichance_gold_share }
+}

@@ -1,0 +1,80 @@
+﻿# Supported scopes : Story
+inherichance_set_player_heir = {
+	if = {
+		limit = { has_game_rule = inherichance_random }
+		random_player_heir = {
+			scope:story = {
+				set_variable = {
+					name = random_heir
+					value = PREV
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = { has_game_rule = inherichance_underdog }
+		ordered_player_heir = {
+			order_by = {
+				subtract = inherichance_number_of_baronies
+			}
+			scope:story = {
+				set_variable = {
+					name = random_heir
+					value = PREV
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = { has_game_rule = inherichance_topdog }
+		ordered_player_heir = {
+			order_by = {
+				add = inherichance_number_of_baronies
+			}
+			scope:story = {
+				set_variable = {
+					name = random_heir
+					value = PREV
+				}
+			}
+		}
+	}
+	else = {
+		scope:story = {
+			set_variable = {
+				name = random_heir
+				value = story_owner.primary_heir
+			}
+		}
+	}
+}
+
+inherichance_gold_split = {
+	save_scope_as = deceased
+	every_heir = {
+		add_gold = {
+			add = scope:deceased.gold
+			multiply = {
+				if = {
+					limit = {
+						OR = {
+							has_game_rule = inherichance_gold_socialism
+							has_game_rule = inherichance_gold_populism
+						}
+					}
+					add = scope:deceased.inherichance_total_share
+					subtract = inherichance_gold_share
+					divide = {
+						scope:deceased = {
+							every_heir = { add = 1 }
+							subtract = 1
+						}
+					}
+				}
+				else = { add = inherichance_gold_share }
+			}
+			divide = scope:deceased.inherichance_total_share
+		}
+	}
+	remove_long_term_gold = scope:deceased.gold
+}

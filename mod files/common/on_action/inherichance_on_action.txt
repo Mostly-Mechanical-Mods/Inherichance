@@ -1,0 +1,109 @@
+﻿on_death = {
+	on_actions = {
+		on_death_inherichance_gold
+		on_death_inherichance_titles
+	}
+}
+on_war_won_attacker = {
+	on_actions = {
+		on_war_lost_inherichance_gold
+		on_war_lost_inherichance_titles
+	}
+}
+on_war_invalidated = {
+	on_actions = {
+		on_war_invalidated_inherichance_gold
+		on_war_invalidated_inherichance_titles
+	}
+}
+
+# on_title_lost = { on_actions = { on_title_lost_inherichance }}
+
+# character just about to die in root scope
+on_death_inherichance_titles = {
+	trigger = {
+		is_ai = no
+		NOT = { has_game_rule = inherichance_vanilla }
+		has_partition_succession_law = yes
+	}
+	effect = { create_story = { type = inherichance_heirs_story }}
+}
+
+# same scopes are available in these events as in the CBs themselves, this just fires for all CBs instead of a specific CB.
+on_war_lost_inherichance_titles = {
+	trigger = {
+		scope:defender = {
+			is_ai = no
+			NOT = { has_game_rule = inherichance_vanilla }
+			has_partition_succession_law = yes
+		}
+		OR = {
+			using_cb = depose_war
+			using_cb = refused_liege_demand_war
+			using_cb = excommunication_war
+		}
+	}
+	effect = { scope:defender = { create_story = { type = inherichance_heirs_story }}}
+}
+
+on_war_invalidated_inherichance_titles = {
+	trigger = {
+		scope:defender = {
+			is_ai = no
+			NOT = { has_game_rule = inherichance_vanilla }
+			has_partition_succession_law = yes
+		}
+		using_cb = excommunication_war
+	}
+	effect = { scope:defender = { create_story = { type = inherichance_heirs_story }}}
+}
+
+on_death_inherichance_gold = {
+	trigger = {
+		NOR = {
+			has_game_rule = inherichance_gold_hardcore_vanilla
+			has_game_rule = inherichance_gold_spoliation
+		}
+		has_partition_succession_law = yes
+		gold > 0
+	}
+	effect = { inherichance_gold_split = yes }
+}
+
+on_war_lost_inherichance_gold = {
+	trigger = {
+		scope:defender = {
+			NOR = {
+				has_game_rule = inherichance_gold_hardcore_vanilla
+				has_game_rule = inherichance_gold_spoliation
+			}
+			has_partition_succession_law = yes
+			gold > 0
+		}
+		OR = {
+			using_cb = depose_war
+			using_cb = refused_liege_demand_war
+			using_cb = excommunication_war
+		}
+	}
+	effect = {
+		scope:defender = { inherichance_gold_split = yes }
+	}
+}
+
+on_war_invalidated_inherichance_gold = {
+	trigger = {
+		scope:defender = {
+			NOR = {
+				has_game_rule = inherichance_gold_hardcore_vanilla
+				has_game_rule = inherichance_gold_spoliation
+			}
+			has_partition_succession_law = yes
+			gold > 0
+		}
+		using_cb = excommunication_war
+	}
+	effect = {
+		scope:defender = { inherichance_gold_split = yes }
+	}
+}

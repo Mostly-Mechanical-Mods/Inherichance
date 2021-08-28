@@ -1,0 +1,41 @@
+﻿l_english:
+  INHERICHANCE_NAME:1 "[GetPlayer.GetShortUINameNotMeNoTooltip], [GetPlayer.GetAge]"
+  INHERICHANCE_EVENT_WINDOW_CLOSE:1 "Continue as [GetPlayer.GetShortUINameNotMeNoTooltip]"
+  INHERICHANCE_HEIR_DESC:"[SuccessionEventWindow.GetPlayerHeir.GetShortUINameNotMeNoTooltip] inherited [SuccessionEventWindow.GetDeadCharacter.GetPrimaryTitle.GetName] from [SuccessionEventWindow.GetDeadCharacter.GetShortUINameNotMeNoTooltip]. Will you press your claim, or will you try to keep the peace with [SuccessionEventWindow.GetPlayerHeir.GetSuccessionRelation( GetPlayer)|l]?"
+
+  INHERICHANCE_FOUNDED_HOUSE:0 "#T Founded a [house|E]\n#!Is the founder of House [GetPlayer.GetHouse.GetName]"
+  INHERICHANCE_FOUNDED_FAITH:0 "#T Founded a [faith|E]\n#!Is the founder of [GetPlayer.GetFaith.GetName]"
+  INHERICHANCE_CULTURAL_HEAD:0 "#T [cultural_head|E]\n#!Is the Cultural Head of the [GetPlayer.GetCulture.GetCollectiveNoun]."
+  INHERICHANCE_RENOWNED:0 "#T [prestige_level|E]: [GetPrestigeLevelName(GetPlayer.GetPrestigeLevel)]#!"
+  INHERICHANCE_PIOUS:0 "#T [piety_level|E]: [GetPietyLevelName(GetPlayer.GetPietyLevel)]#!"
+
+  INHERICHANCE_LOST_TITLE_SHARE:0 "[Scope.GetCharacter.GetUINameNoTooltip]"
+  INHERICHANCE_LOST_TITLES:0 "[Select_CString( EqualTo_CFixedPoint( GetPlayer.MakeScope.Var('inherichance_heirs_story').Var('inherichance_lost_titles_number').GetValue, '(CFixedPoint)0' ), '', '@warning_icon!')] Titles lost on Succession: [GetPlayer.MakeScope.Var('inherichance_heirs_story').Var('inherichance_lost_titles_number').GetValue|0]"
+
+# Game rules
+
+  rule_inherichance: "Player Heir on partition inheritance"
+  setting_inherichance_random: "Alea Jacta Est"
+  setting_inherichance_random_desc: "Play as a random heir"
+  setting_inherichance_underdog: "Underdog challenge"
+  setting_inherichance_underdog_desc: "Always play the heir that inherits the fewer holdings\nHoldings handed out before death count"
+  setting_inherichance_topdog: "Partition is broken"
+  setting_inherichance_topdog_desc: "Always play the heir that inherits the most holdings\nHoldings handed out before death count"
+  setting_inherichance_vanilla: "Vanilla"
+  setting_inherichance_vanilla_desc: "So you don't have to deactivate Inherichance ever again, even if you don't want to use any of its custom settings"
+
+  rule_inherichance_gold: "Gold inheritance"
+  setting_inherichance_gold_hardcore_vanilla: "Hardcore Vanilla"
+  setting_inherichance_gold_hardcore_vanilla_desc: "All the gold goes to the Primary Heir, even if that's not the player"
+  setting_inherichance_gold_spoliation: "Spoliation"
+  setting_inherichance_gold_spoliation_desc: "All the gold goes to the Player Heir, whoever that is"
+  setting_inherichance_gold_egalitarianism: "Egalitarianism"
+  setting_inherichance_gold_egalitarianism_desc: "Every landed heir gets the same amount"
+  setting_inherichance_gold_capitalism: "Capitalism"
+  setting_inherichance_gold_capitalism_desc: "Heirs that inherit the most land get the most gold"
+  setting_inherichance_gold_socialism: "Socialism"
+  setting_inherichance_gold_socialism_desc: "Heirs that inherit the less land get the most gold"
+  setting_inherichance_gold_royalism: "Royalism"
+  setting_inherichance_gold_royalism_desc: "Heirs that inherit the highest rank title get the most gold"
+  setting_inherichance_gold_populism: "Populism"
+  setting_inherichance_gold_populism_desc: "Heirs that inherit the smallest rank title get the most gold"

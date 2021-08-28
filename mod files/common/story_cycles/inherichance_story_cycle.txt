@@ -1,0 +1,124 @@
+﻿inherichance_heirs_story = { 
+
+	on_setup = {
+		story_owner = { inherichance_set_player_heir = yes }
+
+		if = {
+			limit = {
+				has_game_rule = inherichance_gold_spoliation
+				story_owner.gold > 0
+			}
+			var:random_heir = { add_gold = scope:story.story_owner.gold }
+			story_owner = { remove_long_term_gold = gold }
+		}
+
+		story_owner = {
+			every_player_heir = {
+				limit = { NOT = { THIS = scope:story.var:random_heir }}
+				scope:story = {
+					add_to_variable_list = {
+						name = other_heirs
+						target = PREV
+					}
+				}
+			}
+
+			every_player_heir = {
+				set_variable = {
+					name = dead_character
+					value = scope:story.story_owner
+				}
+				set_variable = {
+					name = inherichance_heirs_story
+					value = scope:story
+				}
+				create_story = {
+					type = inherichance_titles_story
+					save_temporary_scope_as = inherichance_titles_story
+				}
+				if = {
+					limit = { NOT = { THIS = scope:story.var:random_heir }}
+					scope:story = {
+						add_to_variable_list = {
+							name = other_heirs
+							target = PREV
+						}
+						add_to_variable_list = {
+							name = inherichance_titles_stories
+							target = scope:inherichance_titles_story
+						}
+					}
+					scope:inherichance_titles_story = {
+						every_in_list = {
+							variable = inherited_titles
+							scope:story = {
+								add_to_variable_list = {
+									name = inherichance_lost_titles
+									target = PREV
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		set_variable = {
+			name = inherichance_lost_titles_number
+			value = {
+				every_in_list = {
+					variable = inherichance_lost_titles
+					add = 1
+				}
+			}
+		}
+		
+		make_story_owner = var:random_heir
+	}
+
+	on_end = {
+		every_in_list = {
+			variable = inherichance_titles_stories
+			end_story = yes
+		}
+	}
+
+	on_owner_death = {
+		
+	}
+}
+
+inherichance_titles_story = {
+	on_setup = {
+		set_variable = {
+			name = heir
+			value = story_owner
+		}
+		story_owner = {
+			set_variable = {
+				name = inherichance_titles_story
+				value = scope:story
+			}
+			ordered_heir_to_title = {
+				limit = {
+					holder = scope:story.story_owner.var:dead_character
+					is_leased_out = no
+				}
+				order_by = tier
+				min = 0
+				scope:story = {
+					add_to_variable_list = {
+						name = inherited_titles
+						target = PREV
+					}
+				}
+			}
+		}
+	}
+
+	on_end = {
+		story_owner = {
+			if = { limit = { has_variable = inherichance_heirs_story } remove_variable = inherichance_heirs_story }
+			if = { limit = { has_variable = dead_character } remove_variable = dead_character }
+		}
+	}
+}
