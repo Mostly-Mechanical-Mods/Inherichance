@@ -86,7 +86,9 @@ window = {
 
 								item = {
 									vbox_legacy_item = {
-										visible = "[Not(EqualTo_string(LegacyItem.GetEndDate.GetString,LegacyItem.GetStartDate.GetString))]"
+										# [UniUI] [Inherichance]
+										using = UniUI_Inherichance_reign_duration_visibility
+										# [/Inherichance] [/UniUI]
 									}
 								}
 							}
