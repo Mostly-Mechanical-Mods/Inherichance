@@ -2,10 +2,28 @@
 	scope = character
 	saved_scopes = {
 		dead_character
+		player_heir
+
 	}
-	effect = {				
+	is_valid = {
+		has_variable = inherichance_heirs_story
+	}
+	effect = {
 		if = {
-			limit = { NOT = { THIS = var:inherichance_heirs_story.var:random_heir }}
+			limit = { debug_only = yes }
+			debug_log = "SUCCESSION WINDOW"
+			debug_log = "ROOT"
+			debug_log_scopes = yes
+			debug_log = "PLAYER"
+			random_player = {
+				debug_log_scopes = no
+			}
+		}		
+		if = {
+			limit = {
+				is_ai = no
+				NOT = { THIS = var:inherichance_heirs_story.var:random_heir }
+			}
 			set_player_character = var:inherichance_heirs_story.var:random_heir
 		}
 	}
@@ -13,6 +31,9 @@
 
 sgui_end_inherichance = {
 	scope = character
+	is_valid = {
+		has_variable = inherichance_heirs_story
+	}
 	effect = {
 		var:inherichance_heirs_story = { end_story = yes }
 	}

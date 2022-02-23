@@ -5,3 +5,39 @@
 		has_realm_law = high_partition_succession_law
 	}
 }
+
+gender_can_inherit_from = {
+	trigger_if = {
+		limit = { is_male = yes }
+		$TARGET$ = {
+			OR = {
+				has_realm_law = equal_law
+				has_realm_law = male_only_law
+				has_realm_law = male_preference_law
+				trigger_if = {
+					limit = { has_realm_law = female_preference_law }
+					any_child = {
+						is_female = yes
+						count = 0
+					}
+				}
+			}
+		}
+	}
+	trigger_else = {
+		$TARGET$ = {
+			OR = {
+				has_realm_law = equal_law
+				has_realm_law = female_only_law
+				has_realm_law = female_preference_law
+				trigger_if = {
+					limit = { has_realm_law = male_preference_law }
+					any_child = {
+						is_male = yes
+						count = 0
+					}
+				}
+			}
+		}
+	}
+}
