@@ -1,8 +1,96 @@
 ﻿# Supported scopes : Story
 inherichance_set_player_heir = {
 	if = {
+		limit = { debug_only = yes }
+		debug_log = "INHERICHANCE SET PLAYER HEIR"
+		debug_log_scopes = no
+	}
+	save_scope_as = player
+	every_player_heir = {
+		if = {
+			limit = { debug_only = yes }
+			debug_log = "PLAYER HEIR"
+			debug_log_scopes = no
+		}
+		add_to_list = inherichance_heirs
+	}
+	every_child = {
+		limit = {
+			is_ruler = yes
+			is_landless_ruler = no
+			dynasty = PREV.dynasty
+			NOT = { has_trait = disinherited }
+			NOT = { is_in_list = inherichance_heirs }
+			gender_can_inherit_from = { TARGET = scope:player }
+		}
+		save_scope_as = child
+		if = {
+			limit = { debug_only = yes }
+			debug_log = "PLAYER LANDED KID"
+			debug_log_scopes = no
+		}
+		while = {
+			count = {
+				every_held_title = {
+					add = 1
+				}
+			}
+			ordered_held_title = {
+				limit = { is_titular = no }
+				order_by = tier
+				max = 99
+				check_range_bounds = no
+				ordered_any_past_holder_reversed = {
+					if = {
+						limit = { THIS = scope:player }
+						if = {
+							limit = { debug_only = yes }
+							PREV = { debug_log_scopes = no }
+						}
+						scope:child = { add_to_list = inherichance_heirs }
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { has_realm_law = confederate_partition_succession_law }
+		scope:story = {
+			set_variable = {
+				name = creatable_titles
+				value = {
+					every_alert_creatable_title = {
+						add = 1
+					}
+					min = 0
+				}
+			}
+		}
+		if = {
+			limit = { scope:story.var:creatable_titles > 0 }
+			ordered_child = {
+				limit = {
+					is_ruler = no
+					NOT = { has_trait = disinherited }
+					NOT = { is_in_list = inherichance_heirs }
+					gender_can_inherit_from = { TARGET = scope:player }
+				}
+				order_by = age
+				max = scope:story.var:creatable_titles
+				check_range_bounds = no
+				if = {
+					limit = { debug_only = yes }
+					debug_log = "PLAYER UNLANDED KID"
+					debug_log_scopes = no
+				}
+				add_to_list = inherichance_heirs
+			}
+		}
+	}
+	if = {
 		limit = { has_game_rule = inherichance_random }
-		random_player_heir = {
+		random_in_list = {
+			list = inherichance_heirs
 			scope:story = {
 				set_variable = {
 					name = random_heir
@@ -10,10 +98,16 @@ inherichance_set_player_heir = {
 				}
 			}
 		}
+		if = {
+			limit = { debug_only = yes }
+			debug_log = "INHERICHANCE_RANDOM"
+			scope:story.var:random_heir = { debug_log_scopes = no }
+		}
 	}
 	else_if = {
 		limit = { has_game_rule = inherichance_underdog }
-		ordered_player_heir = {
+		ordered_in_list = {
+			list = inherichance_heirs
 			order_by = {
 				subtract = inherichance_number_of_baronies
 			}
@@ -24,10 +118,16 @@ inherichance_set_player_heir = {
 				}
 			}
 		}
+		if = {
+			limit = { debug_only = yes }
+			debug_log = "INHERICHANCE_UNDERDOG"
+			scope:story.var:random_heir = { debug_log_scopes = no }
+		}
 	}
 	else_if = {
 		limit = { has_game_rule = inherichance_topdog }
-		ordered_player_heir = {
+		ordered_in_list = {
+			list = inherichance_heirs
 			order_by = {
 				add = inherichance_number_of_baronies
 			}
@@ -38,6 +138,11 @@ inherichance_set_player_heir = {
 				}
 			}
 		}
+		if = {
+			limit = { debug_only = yes }
+			debug_log = "INHERICHANCE_TOPDOG"
+			scope:story.var:random_heir = { debug_log_scopes = no }
+		}
 	}
 	else = {
 		scope:story = {
@@ -45,6 +150,11 @@ inherichance_set_player_heir = {
 				name = random_heir
 				value = story_owner.primary_heir
 			}
+		}
+		if = {
+			limit = { debug_only = yes }
+			debug_log = "PRIMARY_HEIR FALLBACK"
+			scope:story.var:random_heir = { debug_log_scopes = no }
 		}
 	}
 }

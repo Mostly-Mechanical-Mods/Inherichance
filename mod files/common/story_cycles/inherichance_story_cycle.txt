@@ -13,7 +13,8 @@
 		}
 
 		story_owner = {
-			every_player_heir = {
+			every_in_list = {
+				list = inherichance_heirs
 				limit = { NOT = { THIS = scope:story.var:random_heir }}
 				scope:story = {
 					add_to_variable_list = {
@@ -23,7 +24,8 @@
 				}
 			}
 
-			every_player_heir = {
+			every_in_list = {
+				list = inherichance_heirs
 				set_variable = {
 					name = dead_character
 					value = scope:story.story_owner
