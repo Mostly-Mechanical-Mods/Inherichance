@@ -912,7 +912,7 @@ window = {
 										}
 									}
 									# [Vanilla]
-									
+
 									# [Inherichance]
 									UniUI_Inherichance_window_succession_event_vbox_current_lineage = {}
 									# [/Inherichance] [/UniUI]
