@@ -37,10 +37,12 @@ on_war_lost_inherichance_titles = {
 			NOT = { has_game_rule = inherichance_vanilla }
 			has_partition_succession_law = yes
 		}
-		OR = {
-			using_cb = depose_war
-			using_cb = refused_liege_demand_war
-			using_cb = excommunication_war
+		war = {
+			OR = {
+				using_cb = depose_war
+				using_cb = refused_liege_demand_war
+				using_cb = excommunication_war
+			}
 		}
 	}
 	effect = { scope:defender = { create_story = { type = inherichance_heirs_story }}}
@@ -53,7 +55,7 @@ on_war_invalidated_inherichance_titles = {
 			NOT = { has_game_rule = inherichance_vanilla }
 			has_partition_succession_law = yes
 		}
-		using_cb = excommunication_war
+		war = { using_cb = excommunication_war }
 	}
 	effect = { scope:defender = { create_story = { type = inherichance_heirs_story }}}
 }
@@ -80,10 +82,12 @@ on_war_lost_inherichance_gold = {
 			has_partition_succession_law = yes
 			gold > 0
 		}
-		OR = {
-			using_cb = depose_war
-			using_cb = refused_liege_demand_war
-			using_cb = excommunication_war
+		war = {
+			OR = {
+				using_cb = depose_war
+				using_cb = refused_liege_demand_war
+				using_cb = excommunication_war
+			}
 		}
 	}
 	effect = {
@@ -101,7 +105,7 @@ on_war_invalidated_inherichance_gold = {
 			has_partition_succession_law = yes
 			gold > 0
 		}
-		using_cb = excommunication_war
+		war = { using_cb = excommunication_war }
 	}
 	effect = {
 		scope:defender = { inherichance_gold_split = yes }
