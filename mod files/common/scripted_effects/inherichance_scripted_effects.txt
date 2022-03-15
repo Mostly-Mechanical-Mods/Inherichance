@@ -40,7 +40,7 @@ inherichance_set_player_heir = {
 				order_by = tier
 				max = 99
 				check_range_bounds = no
-				ordered_any_past_holder_reversed = {
+				ordered_past_holder_reversed = {
 					if = {
 						limit = { THIS = scope:player }
 						if = {
