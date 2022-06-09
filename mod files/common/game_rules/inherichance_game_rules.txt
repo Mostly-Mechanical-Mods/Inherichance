@@ -1,9 +1,15 @@
 ﻿inherichance = {
 	default = inherichance_vanilla
 	
-	inherichance_random = {}
-	inherichance_underdog = {}
-	inherichance_topdog = {}
+	inherichance_random = {
+		flag = inherichance_gui
+	}
+	inherichance_underdog = {
+		flag = inherichance_gui
+	}
+	inherichance_topdog = {
+		flag = inherichance_gui
+	}
 	inherichance_vanilla = {}
 }
 

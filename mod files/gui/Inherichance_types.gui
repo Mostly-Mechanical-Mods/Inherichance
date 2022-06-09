@@ -68,12 +68,16 @@ types UniUI_Inherichance_window_succession_event {
 		name = "titles"
 		layoutpolicy_vertical = expanding
 		layoutpolicy_horizontal = expanding
-		margin = { 6 6 }
+		margin = { 16 4 }
 		spacing = 6
 
 		text_single = {
 			layoutpolicy_horizontal = expanding
 			text = "SUCCESSION_INHERITED_TITLES"
+		}
+
+		background = {
+			using = Background_Area_With_Header_Dark
 		}
 
 		hbox = {
@@ -227,6 +231,7 @@ types UniUI_Inherichance_window_succession_event {
 	type UniUI_Inherichance_window_succession_event_right_character = vbox {
 		layoutpolicy_vertical = expanding
 		spacing = 5
+		margin_top = 32
 
 		text_label_center = {
 			visible = "[SuccessionEventWindow.GetPlayerHeir.IsValid]"
@@ -436,7 +441,7 @@ types Inherichance_window_succession_event {
 		text_single = {
 			layoutpolicy_horizontal = expanding
 			autoresize = no
-			text = "LEGACY_NAME"
+			text = "LEGACY_NAME_HEIR"
 			default_format = "#high"
 			align = center
 		}
@@ -482,7 +487,7 @@ types Inherichance_window_succession_event {
 		Inherichance_hbox_legacy_status = {}
 
 		text_single = {
-			text = "LEGACY_NAME"
+			text = "LEGACY_NAME_HEIR"
 			default_Format = "#high"
 		}
 
