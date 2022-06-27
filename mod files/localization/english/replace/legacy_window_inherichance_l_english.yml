@@ -14,6 +14,8 @@
 
 # Game rules
 
+  GG_Inherichance: "Inherichance"
+
   rule_inherichance: "Player Heir on partition inheritance"
   setting_inherichance_random: "Alea Jacta Est"
   setting_inherichance_random_desc: "Play as a random heir"

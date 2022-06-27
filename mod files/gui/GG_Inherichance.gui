@@ -1,0 +1,28 @@
+types GG_Inherichance
+{
+	type GG_Inherichance = GG_rulegroup {
+		blockoverride "GG_rulegroup" {
+			onclick = "[GetVariableSystem.Toggle('GG_Inherichance')]"
+		}
+		blockoverride "GG_expand_button" {
+			frame = "[Select_int32( GetVariableSystem.Exists('GG_Inherichance'), '(int32)2', '(int32)1' )]"
+		}
+		blockoverride "GG_icon" {
+			texture = "gfx/gamerules/inherichance.png"
+		}
+		blockoverride "GG_rulegroup_name" {
+			text = "GG_Inherichance"
+		}
+		blockoverride "GG_rulegroup_visibility" {
+			visible = "[GetVariableSystem.Exists('GG_Inherichance')]"
+		}
+		blockoverride "gamerules" {
+			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'inherichance' )]" }
+			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'inherichance_gold' )]" }
+		}
+	}
+}
+
+
+
+
