@@ -1,5 +1,4 @@
 ﻿l_simp_chinese:
- LEGACY_NAME:1 "[GetPlayer.GetShortUINameNotMeNoTooltip]，[GetPlayer.GetAge]"
  INHERICHANCE_EVENT_WINDOW_CLOSE:1 "继续扮演[GetPlayer.GetShortUINameNotMeNoTooltip]"
  INHERICHANCE_HEIR_DESC: "[SuccessionEventWindow.GetPlayerHeir.GetShortUINameNotMeNoTooltip]继承了[SuccessionEventWindow.GetDeadCharacter.GetShortUINameNotMeNoTooltip]的[SuccessionEventWindow.GetDeadCharacter.GetPrimaryTitle.GetName]。你想要索取你的宣称，或者你会尝试与[SuccessionEventWindow.GetPlayerHeir.GetSuccessionRelation( GetPlayer)|l]保持和平吗？"
  INHERICHANCE_FOUNDED_HOUSE:0 "#T 创建了一个[house|E]\n#!是[GetPlayer.GetHouse.GetName]家族的创建者"
@@ -33,3 +32,5 @@
  setting_inherichance_gold_royalism_desc: "继承最高等级头衔的继承人获得大多数金币"
  setting_inherichance_gold_populism: "平民主义"
  setting_inherichance_gold_populism_desc: "继承最低等级头衔的继承人获得大多数金币"
+ LEGACY_NAME_HEIR:1 "[GetPlayer.GetShortUINameNotMeNoTooltip]，[GetPlayer.GetAge]"
+ GG_Inherichance: "继承"
