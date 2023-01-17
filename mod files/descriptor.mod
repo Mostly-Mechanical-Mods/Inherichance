@@ -4,5 +4,5 @@ tags={
 	"Balance"
 }
 name="Inherichance"
-supported_version="1.6.*"
+supported_version="1.8.*"
 remote_file_id="2569507763"
