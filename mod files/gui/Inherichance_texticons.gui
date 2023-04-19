@@ -1,0 +1,19 @@
+﻿texticon = {
+	icon = mmm_icon
+	iconsize = {
+		texture = "gfx/mmm_icon.dds"
+		size = { 25 25 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = mmm_inherichance_icon
+	iconsize = {
+		texture = "gfx/mmm_inherichance_icon.dds"
+		size = { 25 25 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}

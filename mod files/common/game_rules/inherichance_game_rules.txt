@@ -1,6 +1,10 @@
 ﻿inherichance = {
 	default = inherichance_vanilla
 	
+	categories = {
+		mostly_mechanical_mods mmm_inherichance
+	}
+
 	inherichance_random = {
 		flag = inherichance_gui
 	}
@@ -15,6 +19,10 @@
 
 inherichance_gold = {
 	default = inherichance_gold_hardcore_vanilla
+
+	categories = {
+		mostly_mechanical_mods mmm_inherichance
+	}
 	
 	inherichance_gold_hardcore_vanilla = {}
 	inherichance_gold_spoliation = {}

@@ -16,6 +16,9 @@
 
   GG_Inherichance: "Inherichance"
 
+  game_rule_category_mostly_mechanical_mods: "@mmm_icon! Mostly Mechanical Mods"
+  game_rule_category_mmm_inherichance: "@mmm_inherichance_icon! Inherichance"
+
   rule_inherichance: "Player Heir on partition inheritance"
   setting_inherichance_random: "Alea Jacta Est"
   setting_inherichance_random_desc: "Play as a random heir"
