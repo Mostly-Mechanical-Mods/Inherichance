@@ -44,3 +44,9 @@
   setting_inherichance_gold_royalism_desc: "Heirs that inherit the highest rank title get the most gold"
   setting_inherichance_gold_populism: "Populism"
   setting_inherichance_gold_populism_desc: "Heirs that inherit the smallest rank title get the most gold"
+
+rule_Inherichance_loaded: "Enable Inherichance"
+setting_Inherichance_is_loaded: "On"
+setting_Inherichance_is_loaded_desc: "Enable Inherichance mechanics"
+setting_Inherichance_is_not_loaded: "Off"
+setting_Inherichance_is_not_loaded_desc: "Disable Inherichance mechanics"
