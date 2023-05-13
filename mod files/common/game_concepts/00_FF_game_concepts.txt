@@ -1,0 +1,38 @@
+﻿mmm = {
+	texture = "gfx/mod_icons/mmm_icon.dds"
+}
+
+mmm_pow = {
+	parent = mmm
+	texture = "gfx/mod_icons/mmm_pow_icon.dds"
+}
+
+mmm_ff = {
+	parent = mmm
+	texture = "gfx/mod_icons/mmm_ff_icon.dds"
+}
+
+mmm_tot = {
+	parent = mmm
+	texture = "gfx/mod_icons/mmm_tot_icon.dds"
+}
+
+mmm_bmu = {
+	parent = mmm
+	texture = "gfx/mod_icons/mmm_bmu_icon.dds"
+}
+
+mmm_tot = {
+	parent = mmm
+	texture = "gfx/mod_icons/mmm_tot_icon.dds"
+}
+
+mmm_inherichance = {
+	parent = mmm
+	texture = "gfx/mod_icons/mmm_inherichance_icon.dds"
+}
+
+mmm_imho = {
+	parent = mmm
+	texture = "gfx/mod_icons/mmm_imho_icon.dds"
+}
