@@ -2,7 +2,7 @@
 	value = 0
 	every_heir_to_title = {
 		limit = {
-			holder = scope:deceased
+			holder = scope:player
 			is_leased_out = no
 			tier <= tier_county
 		}
@@ -13,7 +13,7 @@
 			is_leased_out = no
 			tier <= tier_county
 			exists = previous_holder
-			previous_holder = scope:deceased
+			previous_holder = scope:player
 		}
 		add = 1
 	}
@@ -24,7 +24,7 @@ inherichance_title_rank = {
 	value = 0
 	ordered_heir_to_title = {
 		limit = {
-			holder = scope:deceased
+			holder = scope:player
 			is_leased_out = no
 		}
 		position = 0
@@ -35,7 +35,7 @@ inherichance_title_rank = {
 		ordered_held_title = {
 			limit = {
 				exists = previous_holder
-				previous_holder = scope:deceased
+				previous_holder = scope:player
 			}
 			position = 0
 			order_by = tier
