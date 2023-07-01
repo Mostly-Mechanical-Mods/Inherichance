@@ -24,7 +24,7 @@ inherichance_title_rank = {
 	value = 0
 	ordered_heir_to_title = {
 		limit = {
-			holder = scope:player
+			holder = scope:deceased
 			is_leased_out = no
 		}
 		position = 0
@@ -35,7 +35,7 @@ inherichance_title_rank = {
 		ordered_held_title = {
 			limit = {
 				exists = previous_holder
-				previous_holder = scope:player
+				previous_holder = scope:deceased
 			}
 			position = 0
 			order_by = tier
