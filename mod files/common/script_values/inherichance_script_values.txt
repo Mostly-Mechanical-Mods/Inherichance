@@ -2,7 +2,7 @@
 	value = 0
 	every_heir_to_title = {
 		limit = {
-			holder = scope:deceased
+			holder = scope:player
 			is_leased_out = no
 			tier <= tier_county
 		}
@@ -13,7 +13,7 @@
 			is_leased_out = no
 			tier <= tier_county
 			exists = previous_holder
-			previous_holder = scope:deceased
+			previous_holder = scope:player
 		}
 		add = 1
 	}
