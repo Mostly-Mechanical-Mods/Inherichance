@@ -23,14 +23,19 @@ inherichance = {
 
 	inherichance_random = {
 		flag = inherichance_gui
+		flag = GG_can_change_rule
 	}
 	inherichance_underdog = {
 		flag = inherichance_gui
+		flag = GG_can_change_rule
 	}
 	inherichance_topdog = {
 		flag = inherichance_gui
+		flag = GG_can_change_rule
 	}
-	inherichance_vanilla = {}
+	inherichance_vanilla = {
+		flag = GG_can_change_rule
+	}
 }
 
 inherichance_gold = {
@@ -40,11 +45,25 @@ inherichance_gold = {
 		mostly_mechanical_mods mmm_inherichance
 	}
 	
-	inherichance_gold_hardcore_vanilla = {}
-	inherichance_gold_spoliation = {}
-	inherichance_gold_egalitarianism = {}
-	inherichance_gold_capitalism = {}
-	inherichance_gold_socialism = {}
-	inherichance_gold_royalism = {}
-	inherichance_gold_populism = {}
+	inherichance_gold_hardcore_vanilla = {
+		flag = GG_can_change_rule
+	}
+	inherichance_gold_spoliation = {
+		flag = GG_can_change_rule
+	}
+	inherichance_gold_egalitarianism = {
+		flag = GG_can_change_rule
+	}
+	inherichance_gold_capitalism = {
+		flag = GG_can_change_rule
+	}
+	inherichance_gold_socialism = {
+		flag = GG_can_change_rule
+	}
+	inherichance_gold_royalism = {
+		flag = GG_can_change_rule
+	}
+	inherichance_gold_populism = {
+		flag = GG_can_change_rule
+	}
 }

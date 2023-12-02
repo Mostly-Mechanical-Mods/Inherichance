@@ -1,0 +1,15 @@
+﻿l_english:
+
+Inherichance_changelog_alert: "[mmm_inherichance|E] update"
+Inherichance_changelog_alert_desc: "[mmm_inherichance|E] has updated since you started this playthrough"
+Inherichance_changelog_alert_click: "#P #italic Left-click to read Changelog and remove the alert#!#!"
+
+Inherichance_changelog_alert_interaction: "[mmm_inherichance|E] Changelog"
+Inherichance_changelog_alert_interaction_desc: "Changelog for [mmm_inherichance|E]"
+Inherichance_changelog_alert_interaction_send: "Apply Patch"
+Inherichance_changelog_alert_introduction: "[mmm_inherichance|E] has updated since you started this playthrough"
+Inherichance_v1_1_3_changelog: "#bold Inherichance v1.1.3#!"
+Inherichance_v1_1_3_changelog_patch: "No patch is necessary on your current savegame."
+Inherichance_v1_1_3_changelog_1: "Updated for Peacock 1.11.2"
+Inherichance_v1_1_3_changelog_2: "New clan partition succession laws are now accounted for"
+Inherichance_v1_1_3_changelog_3: "Game rule settings can now be changed during a game if you use Gamerule Gadget"

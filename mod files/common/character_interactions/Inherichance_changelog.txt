@@ -1,0 +1,63 @@
+﻿Inherichance_changelog_alert_interaction = {
+	interface_priority = 120
+	common_interaction = yes
+	icon = mmm_inherichance_icon
+
+	category = interaction_debug_main
+
+	desc = Inherichance_changelog_alert_interaction_desc
+
+	send_name = Inherichance_changelog_alert_interaction_send
+
+	is_shown = {
+		scope:actor = scope:recipient
+		NOT = { has_global_variable = Inherichance_v1_1_3 }
+	}
+
+	is_valid_showing_failures_only = {
+		
+	}
+
+	can_send = {
+
+	}
+	
+	is_highlighted = {
+
+	}
+
+	auto_accept = {
+	}
+
+	on_send = {
+		set_global_variable = Inherichance_v1_1_3
+	}
+
+	on_auto_accept = {
+		
+	}
+
+	on_accept = {
+		set_global_variable = Inherichance_is_loaded
+		scope:actor = { add_to_list = debug }
+		every_in_list = {
+			list = debug
+			custom = Inherichance_changelog_alert_introduction
+		}
+		if = {
+			limit = { NOT = { has_global_variable = Inherichance_v1_1_3 }}
+			every_in_list = {
+				list = debug
+				custom = Inherichance_v1_1_3_changelog
+				custom_tooltip = Inherichance_v1_1_3_changelog_patch
+				custom_tooltip = Inherichance_v1_1_3_changelog_1
+				custom_tooltip = Inherichance_v1_1_3_changelog_2
+				custom_tooltip = Inherichance_v1_1_3_changelog_3
+			}
+		}
+	}
+		
+	on_decline = {
+		
+	}
+}

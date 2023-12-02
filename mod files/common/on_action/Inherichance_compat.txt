@@ -10,5 +10,6 @@ Inherichance_compat = {
 			name = Inherichance_is_loaded
 			value = yes
 		}
+		set_global_variable = Inherichance_v1_1_3
 	}
 }
