@@ -11,7 +11,7 @@
 
 	is_shown = {
 		scope:actor = scope:recipient
-		NOT = { has_global_variable = Inherichance_v1_1_3 }
+		NOT = { has_global_variable = Inherichance_v1_1_4 }
 	}
 
 	is_valid_showing_failures_only = {
@@ -30,6 +30,7 @@
 	}
 
 	on_send = {
+		set_global_variable = Inherichance_v1_1_4
 		set_global_variable = Inherichance_v1_1_3
 	}
 
@@ -43,6 +44,15 @@
 		every_in_list = {
 			list = debug
 			custom = Inherichance_changelog_alert_introduction
+		}
+		if = {
+			limit = { NOT = { has_global_variable = Inherichance_v1_1_4 }}
+			every_in_list = {
+				list = debug
+				custom = Inherichance_v1_1_4_changelog
+				custom_tooltip = Inherichance_v1_1_4_changelog_patch
+				custom_tooltip = Inherichance_v1_1_4_changelog_1
+			}
 		}
 		if = {
 			limit = { NOT = { has_global_variable = Inherichance_v1_1_3 }}
